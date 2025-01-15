@@ -1,0 +1,83 @@
+@baseUrl = http://localhost:3333
+@authToken = {{authenticate.response.body.access_token}}
+
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+  "email": "joaoTeste@mail.com",
+  "password": "password"
+}
+
+
+###
+
+# @name authenticate_wrong_user
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+{
+  "email": "joaoedu@mail.com.br",
+  "password": "asdasd"
+}
+
+###
+
+# @name create_account
+POST {{baseUrl}}/sellers
+Content-Type: application/json
+
+{
+  "name": "Mais um user",
+  "email": "joaoOutro@mail.com",
+  "password": "password",
+  "passwordConfirmation": "password",
+  "phone": "1998765-6666"
+}
+
+###
+
+# @name create_product
+POST {{baseUrl}}/products
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Armário",
+  "description": "Armário teste",
+  "priceInCents": 1900,
+  "categoryId": 1
+}
+
+###
+
+# @name edit_product
+PUT {{baseUrl}}/products/72c7f8ee-d656-4613-8f92-2afffe40bce5
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Armário Alterado",
+  "description": "Armário teste Mudada",
+  "priceInCents": 4321,
+  "categoryId": 1
+}
+
+###
+
+# @name find_all_product
+GET {{baseUrl}}/products?page=1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name find_product_by_id
+GET {{baseUrl}}/products/7a642fcb-1028-457d-b88e-f2e921201d21
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
