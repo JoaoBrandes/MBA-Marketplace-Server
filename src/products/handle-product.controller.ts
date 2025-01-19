@@ -60,7 +60,6 @@ export class HandleProductController {
         },
       })
     } catch (err) {
-      console.log('Error ', err)
       return 'Error Creating product '
     }
 

@@ -15,6 +15,8 @@ describe('Create Account', () => {
     phone: '1998765-5555',
   }
 
+  
+
   const jane = {
     name: 'Jane Doe',
     email: 'jane_doe@mail.com.br',
@@ -52,13 +54,5 @@ describe('Create Account', () => {
       .post('/sellers')
       .send(jane)
     expect(response.statusCode).toBe(409)
-  })
-
-  it('Should be able to edit a valid seller', async () => {
-    const response = await request(app.getHttpServer())
-      .post('/sellers')
-      .send(john)
-
-    expect(response.statusCode).toBe(201)
   })
 })

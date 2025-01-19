@@ -1,4 +1,4 @@
-import { CreateAccountController } from 'src/account/account.controller';
+import { CreateAccountController } from 'src/account/create/createAccount.controller';
 import { AuthenticateController } from 'src/auth/authenticate-controller';
 import { FindProductController } from 'src/products/findProduct.controller';
 import { HandleProductController } from 'src/products/handle-product.controller';

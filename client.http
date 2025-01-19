@@ -1,7 +1,6 @@
 @baseUrl = http://localhost:3333
 @authToken = {{authenticate.response.body.access_token}}
 
-
 ###
 
 # @name authenticate
@@ -19,6 +18,7 @@ Content-Type: application/json
 # @name authenticate_wrong_user
 POST {{baseUrl}}/sessions
 Content-Type: application/json
+
 {
   "email": "joaoedu@mail.com.br",
   "password": "asdasd"
@@ -36,6 +36,22 @@ Content-Type: application/json
   "password": "password",
   "passwordConfirmation": "password",
   "phone": "1998765-6666"
+}
+
+
+###
+
+# @name edit_account
+PUT {{baseUrl}}/sellers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "User editado",
+  "email": "joaoTeste@mail.com",
+  "password": "password",
+  "newPassword": "passwordNova",
+  "phone": "1998765-3321"
 }
 
 ###
