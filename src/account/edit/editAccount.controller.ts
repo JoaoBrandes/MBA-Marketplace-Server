@@ -31,7 +31,7 @@ export class EditAccountController {
   constructor(private prisma: PrismaService) {}
   @Put()
   @HttpCode(201)
-  async handle(@Body(validationPipe) body: EditAccountBodySchema, @CurrentUser() user: UserPayload,) {
+  async handle(@Body(validationPipe) body: EditAccountBodySchema, @CurrentUser() user: UserPayload) {
     const { email, name, password, newPassword, phone } = body
     const userId = user.sub
 

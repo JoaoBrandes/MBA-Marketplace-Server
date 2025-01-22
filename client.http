@@ -12,6 +12,20 @@ Content-Type: application/json
   "password": "password"
 }
 
+###
+
+# @name fetch_me
+GET {{baseUrl}}/sellers/me
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name sign_out
+POST {{baseUrl}}/sign-out
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
 
 ###
 
